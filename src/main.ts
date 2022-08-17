@@ -1,17 +1,12 @@
 import { createApp } from "vue";
+import 'normalize.css/normalize.css'
 import App from "./App.vue";
-import { http1 } from "./http/index";
+import router from './router'
+import { createPinia } from "pinia";
 const app = createApp(App);
-http1.request({
-    showLoading: false,
-    url: "/login",
-    method: "post",
-    data: {
-        name: "coderwhy",
-        password: "123456",
-    },
-    // headers: {
-    //     "Content-Type": "123",
-    // },
-});
+import piniaPluginPersist from "pinia-plugin-persist"; //pinia持久化
+const pinia = createPinia();
+pinia.use(piniaPluginPersist);
+app.use(router)
+app.use(pinia);
 app.mount("#app");

@@ -60,8 +60,7 @@ class myHttp {
                     startLoading().close();
                 }
                 //
-
-                console.log("res", res);
+                return res
             },
             (error) => {
                 // 将loading移除
@@ -128,11 +127,6 @@ class myHttp {
             }
         );
     }
-    // request(config: AxiosRequestConfig): void {
-    //     this.instance.request(config).then((res) => {
-    //         // console.log(res);
-    //     });
-    // }
     request<T = any>(config: interceptorTypeConfig<T>): Promise<T> {
         return new Promise((resolve, reject) => {
     
@@ -143,7 +137,7 @@ class myHttp {
     
           this.instance
             .request<any, T>(config)
-            .then((res) => {
+              .then((res) => {
               // 单个请求对数据的处理
               if (config.interceptors?.responseInterceptor) {
                 res = config.interceptors.responseInterceptor(res)
