@@ -18,6 +18,86 @@ https://github.com/woniuit/vue3-admin-ts.git
 
 ### 代码规范
 
+#### prettier
+
+**安装**
+
+```
+npm install prettier -D
+```
+
+**根目录创建.prettierrc文件**
+
+```js
+{
+    "useTabs": false,
+    "tabWidth": 2,
+    "printWidth": 80,
+    "singleQuote": true,
+    "trailingComma": "none",
+    "semi": false
+}
+```
+
+**根目录创建.prettierignore忽略文件**
+
+```js
+/dist/*
+.local
+.output.js
+/node_modules/**
+
+**/*.svg
+**/*.sh
+
+/public/*
+```
+
+**VSCode需要安装prettier的插件**
+
+```
+Prettier-Code-formatter
+```
+
+**在package.json中配置一个scripts**
+
+```
+"prettier": "prettier --write ."
+```
+
+#### ESLint
+
+**安装**
+
+```
+npm install --save-dev eslint eslint-plugin-vue
+```
+
+**执行**
+
+```
+npx eslint --init
+```
+
+**解决eslint和prettier冲突的问题**
+
+```
+npm i eslint-plugin-prettier eslint-config-prettier -D
+```
+
+**在.eslintrc.cjs中添加prettier插件**
+
+```
+extends: [
+    "plugin:vue/vue3-essential",
+    "eslint:recommended",
+    "@vue/typescript/recommended",
+    "@vue/prettier",
+    "@vue/prettier/@typescript-eslint",
+    'plugin:prettier/recommended'
+  ],
+```
+
 
 
 ### 第三方库集成

@@ -2,6 +2,7 @@ import { createApp } from "vue";
 import 'normalize.css/normalize.css'
 import App from "./App.vue";
 import router from './router'
+import './css/common.less'
 import { createPinia } from "pinia";
 const app = createApp(App);
 import piniaPluginPersist from "pinia-plugin-persist"; //pinia持久化
