@@ -1,4 +1,4 @@
-export interface LoginType{
+export interface LoginStoreType{
     token: string,
     menulist:[]
 }

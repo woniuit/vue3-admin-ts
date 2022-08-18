@@ -1,24 +1,37 @@
-import { createRouter, createWebHashHistory } from "vue-router";
-import type { RouteRecordRaw } from "vue-router";
+import { createRouter, createWebHashHistory } from 'vue-router'
+import type { RouteRecordRaw } from 'vue-router'
+import { loginStore } from '../store/index'
 const routes: RouteRecordRaw[] = [
-    {
-        path: "/login",
-        name: "login",
-        component: () => import("../view/login/login.vue"),
-    },
-];
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('../view/login/login.vue')
+  },
+  {
+    path: '/main',
+    name: 'main',
+    component: () =>
+      import(/* webpackChunkName: "main" */ '../view/layout/index.vue')
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'notFound',
+    component: () =>
+      import(/* webpackChunkName: "not-found" */ '../view/not-found/index.vue')
+  }
+]
 const router = createRouter({
-    routes,
-    history: createWebHashHistory(),
-});
+  routes,
+  history: createWebHashHistory()
+})
 router.beforeEach((to) => {
-    // const store = loginStore();
-    if (to.path !== "/login") {
-        // if (!store.token) {
-            return "/login";
-        // }
-        // const allRouter = router.getRoutes()
-        // console.log('所有路由', allRouter);
+  const store = loginStore()
+  if (to.path !== '/login') {
+    if (!store.token) {
+      return '/login'
     }
-});
-export default router;
+    // const allRouter = router.getRoutes()
+    // console.log('所有路由', allRouter);
+  }
+})
+export default router

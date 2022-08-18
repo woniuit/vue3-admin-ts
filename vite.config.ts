@@ -12,14 +12,14 @@ export default defineConfig({
         port: 5173,
         proxy: {
             // 配置的代理不能超过10个
-            "/api": {
-                target: "http://152.136.185.210:4000",
-                rewrite: (path) => path.replace(/^\/api/, ""),
-                // httppathRewrite: {
-                //     "^/api": "",
-                // },
-                changeOrigin: true, // 如果接口跨域，需要进行这个参数配置
-            },
+            // "/api": {
+            //     target: "http://127.0.0.1:5173",
+            //     rewrite: (path) => path.replace(/^\/api/, ""),
+            //     // httppathRewrite: {
+            //     //     "^/api": "",
+            //     // },
+            //     changeOrigin: true, // 如果接口跨域，需要进行这个参数配置
+            // },
         },
     },
     plugins: [

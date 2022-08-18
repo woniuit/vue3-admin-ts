@@ -1,6 +1,6 @@
 import myHttp from "./axios";
 export const axios = new myHttp({
-    baseURL: "/api",
+    baseURL: "http://127.0.0.1:5173",
     timeout: 5000,
     headers: {
         "Content-Type": "application/json",

@@ -30,10 +30,12 @@
 </template>
 <script setup lang="ts">
 import { onMounted, reactive, ref } from 'vue'
-import { loginType } from './type'
+import { loginType } from '../../common/type/common'
 import type { FormInstance, FormRules } from 'element-plus'
+import { loginStore } from '../../store/index'
 
-const ruleForm: loginType = reactive({ name: '', password: '' })
+const store = loginStore()
+const ruleForm: loginType = reactive({ name: 'djy', password: '123456' })
 const ruleFormRef = ref<FormInstance>()
 const rules = reactive<FormRules>({
   name: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
@@ -43,7 +45,7 @@ const submitForm = async (formEl: FormInstance | undefined) => {
   if (!formEl) return
   await formEl.validate((valid, fields) => {
     if (valid) {
-      console.log('submit!', ruleForm)
+      store.Login(ruleForm)
     } else {
       console.log('error submit!', fields)
     }
