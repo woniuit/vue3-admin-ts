@@ -1,9 +1,9 @@
 import { defineStore } from 'pinia'
 import { LoginStoreType } from './type'
-import { loginType } from '@/common/type/common'
-import { login, menu } from '@/api/login/index'
+import { loginType } from '../../../common/type/common'
+import { login, menu } from '../../../api/login/index'
 import router from '../../../router'
-import { mapMenusToRoutes } from '@/util/MotionMenu'
+import { mapMenusToRoutes } from '../../../util/MotionMenu'
 export const loginStore = defineStore('main', {
   state: (): LoginStoreType => {
     return {

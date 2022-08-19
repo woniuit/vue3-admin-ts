@@ -14,6 +14,7 @@ pinia.use(piniaPluginPersist)
 app.use(pinia)
 
 const store = loginStore()
+
 if (store.token) {
   await store.Menu(store.token)
 }

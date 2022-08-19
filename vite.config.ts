@@ -9,6 +9,7 @@ function resolve(dir) {
   return path.join(__dirname, dir)
 }
 export default defineConfig({
+  //   base: './',
   // root: path.join(__dirname, "src"),
   // 配置代理服务器
   server: {
@@ -34,6 +35,9 @@ export default defineConfig({
       resolvers: [ElementPlusResolver()]
     })
   ],
+  build: {
+    target: ['edge90', 'chrome90', 'firefox90', 'safari15']
+  },
   // 别名
   resolve: {
     // 别名配置

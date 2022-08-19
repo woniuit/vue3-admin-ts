@@ -19,7 +19,7 @@
 </template>
 <script setup lang="ts">
 import { onBeforeUpdate, ref } from 'vue'
-import navMenu from '@/components/menu/index'
+import navMenu from '../../components/menu/index'
 components: {
   navMenu
 }
