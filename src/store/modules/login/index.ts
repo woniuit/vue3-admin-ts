@@ -1,8 +1,9 @@
 import { defineStore } from 'pinia'
 import { LoginStoreType } from './type'
-import { loginType } from '../../../common/type/common'
-import { login, menu } from '../../../api/login/index'
+import { loginType } from '@/common/type/common'
+import { login, menu } from '@/api/login/index'
 import router from '../../../router'
+import { mapMenusToRoutes } from '@/util/MotionMenu'
 export const loginStore = defineStore('main', {
   state: (): LoginStoreType => {
     return {
@@ -15,11 +16,19 @@ export const loginStore = defineStore('main', {
       const res = await login(data)
       this.token = res.data.token
       if (res.data.token) {
-        menu(res.data.token).then((res) => {
-          this.menulist = res.data.data.list
-          router.push('/main')
-        })
+        router.push('/main/analysis/echarts')
+        this.Menu(this.token)
       }
+    },
+    async Menu(datas: string) {
+      const resdata = await menu(datas)
+      this.menulist = resdata.data.data.list
+      const routes = mapMenusToRoutes(this.menulist)
+      routes.forEach((route) => {
+        if (route) {
+          router.addRoute('main', route)
+        }
+      })
     }
   },
   persist: {

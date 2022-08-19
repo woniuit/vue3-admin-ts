@@ -11,7 +11,25 @@ const routes: RouteRecordRaw[] = [
     path: '/main',
     name: 'main',
     component: () =>
-      import(/* webpackChunkName: "main" */ '../view/layout/index.vue')
+      import(/* webpackChunkName: "main" */ '../view/layout/index.vue'),
+    // children: [
+    //   {
+    //     path: '/main/analysis/form',
+    //     name: 'form',
+    //     component: () =>
+    //       import(
+    //         /* webpackChunkName: "form" */ '../view/layout/analysis/form/index.vue'
+    //       )
+    //   },
+    //   {
+    //     path: '/main/analysis/table',
+    //     name: 'table',
+    //     component: () =>
+    //       import(
+    //         /* webpackChunkName: "table" */ '../view/layout/analysis/table/index.vue'
+    //       )
+    //   }
+    // ]
   },
   {
     path: '/:pathMatch(.*)*',
@@ -30,8 +48,8 @@ router.beforeEach((to) => {
     if (!store.token) {
       return '/login'
     }
-    // const allRouter = router.getRoutes()
-    // console.log('所有路由', allRouter);
+    const allRouter = router.getRoutes()
+    console.log('所有路由', allRouter);
   }
 })
 export default router

@@ -30,9 +30,9 @@
 </template>
 <script setup lang="ts">
 import { onMounted, reactive, ref } from 'vue'
-import { loginType } from '../../common/type/common'
+import { loginType } from '@/common/type/common'
 import type { FormInstance, FormRules } from 'element-plus'
-import { loginStore } from '../../store/index'
+import { loginStore } from '@/store/index'
 
 const store = loginStore()
 const ruleForm: loginType = reactive({ name: 'djy', password: '123456' })

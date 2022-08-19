@@ -1,7 +1,7 @@
 import myHttp from "./axios";
 export const axios = new myHttp({
     baseURL: "http://127.0.0.1:5173",
-    timeout: 5000,
+    timeout: 10*1000,
     headers: {
         "Content-Type": "application/json",
     },
@@ -16,7 +16,7 @@ export const axios = new myHttp({
             return err;
         },
         responseInterceptor: (res) => {
-            // console.log("响应拦截1");
+            console.log("响应拦截1");
             return res;
         },
         responseInterceptorCatch: (err) => {

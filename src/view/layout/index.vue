@@ -2,7 +2,7 @@
   <div class="main">
     <el-container class="main-content">
       <el-aside width="210">
-        <!-- <nav-menu :isCollapse="isCollapse" /> -->
+        <nav-menu />
       </el-aside>
       <el-container class="page">
         <el-header class="page-header">
@@ -19,6 +19,10 @@
 </template>
 <script setup lang="ts">
 import { onBeforeUpdate, ref } from 'vue'
+import navMenu from '@/components/menu/index'
+components: {
+  navMenu
+}
 </script>
 
 <style scoped lang="less">

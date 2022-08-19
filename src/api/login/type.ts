@@ -1,7 +1,3 @@
-export type IAccount = {
-  name: string
-  password: string
-}
-export type tokenType = {
-  token: string
-}
+import { loginType} from '@/common/type/common'
+
+export interface IAccount extends loginType {}
