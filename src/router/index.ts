@@ -3,6 +3,10 @@ import type { RouteRecordRaw } from 'vue-router'
 import { loginStore } from '../store/index'
 const routes: RouteRecordRaw[] = [
   {
+    path: '/',
+    redirect: '/main/analysis/echarts'
+  },
+  {
     path: '/login',
     name: 'login',
     component: () => import('../view/login/login.vue')
@@ -11,7 +15,7 @@ const routes: RouteRecordRaw[] = [
     path: '/main',
     name: 'main',
     component: () =>
-      import(/* webpackChunkName: "main" */ '../view/layout/index.vue'),
+      import(/* webpackChunkName: "main" */ '../view/layout/index.vue')
     // children: [
     //   {
     //     path: '/main/analysis/form',
@@ -49,7 +53,7 @@ router.beforeEach((to) => {
       return '/login'
     }
     const allRouter = router.getRoutes()
-    console.log('所有路由', allRouter);
+    console.log('所有路由', allRouter)
   }
 })
 export default router
