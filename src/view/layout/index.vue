@@ -19,9 +19,9 @@
 </template>
 <script setup lang="ts">
 import { onBeforeUpdate, ref } from 'vue'
-import navMenu from '../../components/menu/index'
+import NavMenu from '../../components/menu/index'
 components: {
-  navMenu
+  NavMenu
 }
 </script>
 

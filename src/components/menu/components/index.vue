@@ -18,7 +18,7 @@
       <template v-for="v in list" :key="v.url">
         <el-sub-menu v-if="v.children" :index="v.url">
           <template #title>
-            <el-icon><Location /></el-icon>
+            <!-- <el-icon><Location /></el-icon> -->
             {{ v.name }}
           </template>
           <el-menu-item
@@ -28,14 +28,14 @@
             @click="handleLink(vitem)"
           >
             <template #title>
-              <el-icon><Location /></el-icon>
+              <!-- <el-icon><Location /></el-icon> -->
               {{ vitem.name }}
             </template>
           </el-menu-item>
         </el-sub-menu>
         <el-menu-item v-else :index="v.url">
           <template #title>
-            <el-icon><Location /></el-icon>
+            <!-- <el-icon><Location /></el-icon> -->
             {{ v.name }}
           </template>
         </el-menu-item>
