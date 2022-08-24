@@ -1,6 +1,9 @@
 <template>
   <div class="login">
     <div class="form">
+      <div class="admin">
+        <div>admin/123456;user/123456</div>
+      </div>
       <el-form
         ref="ruleFormRef"
         :model="ruleForm"
@@ -35,7 +38,7 @@ import type { FormInstance, FormRules } from 'element-plus'
 import { loginStore } from '../../store/index'
 
 const store = loginStore()
-const ruleForm: loginType = reactive({ name: 'djy', password: '123456' })
+const ruleForm: loginType = reactive({ name: 'admin', password: '123456' })
 const ruleFormRef = ref<FormInstance>()
 const rules = reactive<FormRules>({
   name: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
@@ -75,6 +78,12 @@ onMounted(() => {})
       align-items: center;
       justify-content: center;
     }
+  }
+  .admin {
+    font-size: 14px;
+    color: #999999;
+    margin-bottom: 10px;
+    text-align: center;
   }
 }
 </style>

@@ -1,12 +1,12 @@
 <template>
   <div class="main">
     <el-container class="main-content">
-      <el-aside width="210">
-        <nav-menu />
+      <el-aside :width="isCollapse ? '60px' : '210px'">
+        <nav-menu :isCollapse="isCollapse" />
       </el-aside>
       <el-container class="page">
         <el-header class="page-header">
-          <!-- <nav-header @handleFlexible="handleFlexible" /> -->
+          <nav-header @handleExpand="handleExpand" />
         </el-header>
         <el-main class="page-content">
           <div class="page-info">
@@ -19,9 +19,12 @@
 </template>
 <script setup lang="ts">
 import { onBeforeUpdate, ref } from 'vue'
+import type { Ref } from 'vue'
 import NavMenu from '../../components/menu/index'
-components: {
-  NavMenu
+import NavHeader from '../../components/header/index'
+const isCollapse: Ref<boolean> = ref(false)
+function handleExpand() {
+    isCollapse.value=!isCollapse.value
 }
 </script>
 

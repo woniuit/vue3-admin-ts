@@ -16,8 +16,8 @@ export const loginStore = defineStore('main', {
       const res = await login(data)
       this.token = res.data.token
       if (res.data.token) {
-        router.push('/main/analysis/echarts')
-        this.Menu(this.token)
+        await this.Menu(this.token)
+        
       }
     },
     async Menu(datas: string) {
@@ -26,7 +26,8 @@ export const loginStore = defineStore('main', {
       const routes = mapMenusToRoutes(this.menulist)
       routes.forEach((route) => {
         if (route) {
-          router.addRoute('main', route)
+            router.addRoute('main', route)
+            router.push('/main/analysis/echarts')
         }
       })
     }

@@ -52,8 +52,8 @@ router.beforeEach((to) => {
     if (!store.token) {
       return '/login'
     }
-    const allRouter = router.getRoutes()
-    console.log('所有路由', allRouter)
+    // const allRouter = router.getRoutes()
+    // console.log('所有路由', allRouter)
   }
 })
 export default router

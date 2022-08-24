@@ -11,6 +11,7 @@
       :default-active="activeMenu"
       background-color="#0c2135"
       text-color="#b7bdc3"
+      :collapse="isCollapse"
       active-text-color="#0a60bd"
       :unique-opened="true"
       class="el-menu-vertical-demo"
@@ -18,7 +19,7 @@
       <template v-for="v in list" :key="v.url">
         <el-sub-menu v-if="v.children" :index="v.url">
           <template #title>
-            <!-- <el-icon><Location /></el-icon> -->
+            <el-icon :class="[isCollapse ? 'icons' : '']"><Star /></el-icon>
             {{ v.name }}
           </template>
           <el-menu-item
@@ -28,14 +29,14 @@
             @click="handleLink(vitem)"
           >
             <template #title>
-              <!-- <el-icon><Location /></el-icon> -->
+              <el-icon><Star /></el-icon>
               {{ vitem.name }}
             </template>
           </el-menu-item>
         </el-sub-menu>
         <el-menu-item v-else :index="v.url">
           <template #title>
-            <!-- <el-icon><Location /></el-icon> -->
+            <el-icon><Star /></el-icon>
             {{ v.name }}
           </template>
         </el-menu-item>
@@ -44,9 +45,13 @@
   </div>
 </template>
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { loginStore } from '../../../store/index'
 import { useRouter, useRoute } from 'vue-router'
+import { Star } from '@element-plus/icons-vue'
+const props = defineProps<{
+  isCollapse: boolean
+}>()
 const router = useRouter()
 const route = useRoute()
 const store = loginStore()
@@ -67,6 +72,9 @@ function handleLink(e: { url: string }) {
 
 <style scoped lang="less">
 .menu {
+  .icons {
+    margin-right: 15px !important;
+  }
   .logo {
     display: flex;
     height: 28px;
@@ -99,6 +107,9 @@ function handleLink(e: { url: string }) {
   ::v-deep(.el-menu-vertical):not(.el-menu--collapse) {
     width: 100%;
     height: calc(100% - 48px);
+  }
+  .el-menu-vertical-demo:not(.el-menu--collapse) {
+    width: 200px;
   }
 }
 </style>

@@ -1,6 +1,15 @@
 <template>
   <div>
-    <forms :colLayout="colLayout" :formItems="formItems" v-model="formData">
+    <!-- <forms :colLayout="colLayout" :formItems="formItems" v-model="formData">
+      <template #footer>
+        <div class="handle-btns">
+          <el-button @click="onReset">重置</el-button>
+          <el-button type="primary" @click="onSearch">搜索</el-button>
+        </div>
+      </template>
+    </forms> -->
+
+    <forms :formItems="formItems" v-model="formData">
       <template #footer>
         <div class="handle-btns">
           <el-button @click="onReset">重置</el-button>
@@ -8,16 +17,12 @@
         </div>
       </template>
     </forms>
-
-    <forms :formItems="formItems" v-model="formData">
-    </forms>
-
   </div>
 </template>
 <script setup lang="ts">
-import { ref, watch } from 'vue'
-import Forms from '../../../../components/form'
+import { ref } from 'vue'
 import { FormConfig } from './config/index'
+import Forms from '../../../../components/form'
 const colLayout = {
   xl: 24,
   lg: 24,
@@ -46,15 +51,11 @@ function onSearch() {
 //   },
 //   { deep: true }
 // )
-
-components: {
-  Forms
-}
 </script>
 
 <style scoped lang="less">
 .handle-btns {
-//   text-align: l;
+  //   text-align: l;
   padding: 0 50px 50px 0;
 }
 </style>

@@ -62,7 +62,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref, watch, computed } from 'vue'
+// import { ref, watch, computed } from 'vue'
 
 const props = defineProps({
   modelValue: {
@@ -76,7 +76,7 @@ const props = defineProps({
   colLayout: {
     type: Object,
     default: () => ({
-      xl: 6, // >1920px 4个
+      xl: 6, 
       lg: 8,
       md: 12,
       sm: 24,
