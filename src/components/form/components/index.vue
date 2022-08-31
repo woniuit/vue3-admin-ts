@@ -1,10 +1,19 @@
 <template>
   <div>
-    <el-form label-width="100px" style="padding: 20px">
+    <el-form
+      ref="formRef"
+      :model="modelValue"
+      label-width="100px"
+      style="padding: 20px"
+    >
       <el-row>
         <template v-for="item in formItems" :key="item">
           <el-col v-bind="colLayout">
-            <el-form-item :label="item.label">
+            <el-form-item
+              :label="item.label"
+              :prop="item.field"
+              :rules="item.rules"
+            >
               <template v-if="item.type == 'input'">
                 <el-input
                   :placeholder="item.placeholder"
@@ -62,8 +71,9 @@
   </div>
 </template>
 <script setup lang="ts">
-// import { ref, watch, computed } from 'vue'
-
+import type { FormInstance } from 'element-plus'
+import { ref } from 'vue'
+const formRef = ref<FormInstance>()
 const props = defineProps({
   modelValue: {
     type: Object,
@@ -76,7 +86,7 @@ const props = defineProps({
   colLayout: {
     type: Object,
     default: () => ({
-      xl: 6, 
+      xl: 6,
       lg: 8,
       md: 12,
       sm: 24,
@@ -90,6 +100,13 @@ const emit = defineEmits(['update:modelValue'])
 const handleValueChange = (value: any, field: string) => {
   emit('update:modelValue', { ...props.modelValue, [field]: value })
 }
+const validate = () => {
+  return formRef.value?.validate()
+}
+const resetFields = () => {
+  formRef.value?.resetFields()
+}
+defineExpose({ validate, resetFields })
 </script>
 
 <style scoped lang="less"></style>

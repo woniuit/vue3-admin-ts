@@ -1,9 +1,6 @@
 <template>
   <div class="login">
     <div class="form">
-      <div class="admin">
-        <div>admin/123456;user/123456</div>
-      </div>
       <el-form
         ref="ruleFormRef"
         :model="ruleForm"
@@ -12,10 +9,11 @@
         class="demo-ruleForm"
       >
         <el-form-item label="账号" prop="name">
-          <el-input v-model="ruleForm.name" type="text" autocomplete="off" />
+          <el-input placeholder="admin/123456" v-model="ruleForm.name" type="text" autocomplete="off" />
         </el-form-item>
         <el-form-item label="密码" prop="password">
           <el-input
+            placeholder="123456"
             v-model="ruleForm.password"
             type="password"
             autocomplete="off"
@@ -38,13 +36,14 @@ import type { FormInstance, FormRules } from 'element-plus'
 import { loginStore } from '../../store/index'
 
 const store = loginStore()
-const ruleForm: loginType = reactive({ name: 'admin', password: '123456' })
+const ruleForm: loginType = reactive({ name: '', password: '' })
 const ruleFormRef = ref<FormInstance>()
 const rules = reactive<FormRules>({
   name: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
   password: [{ required: true, message: '请输入密码', trigger: 'blur' }]
 })
 const submitForm = async (formEl: FormInstance | undefined) => {
+    // console.log('formEl',)
   if (!formEl) return
   await formEl.validate((valid, fields) => {
     if (valid) {
@@ -78,12 +77,6 @@ onMounted(() => {})
       align-items: center;
       justify-content: center;
     }
-  }
-  .admin {
-    font-size: 14px;
-    color: #999999;
-    margin-bottom: 10px;
-    text-align: center;
   }
 }
 </style>

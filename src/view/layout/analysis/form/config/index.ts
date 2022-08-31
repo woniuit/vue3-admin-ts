@@ -4,7 +4,14 @@ export const FormConfig = {
       field: 'id',
       type: 'input',
       label: '输入框',
-      placeholder: '请输入'
+      placeholder: '请输入',
+      rules: [
+        {
+          required: true,
+          message: '请输入ID',
+          trigger: 'blur'
+        }
+      ]
     },
     {
       field: 'select',
