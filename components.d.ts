@@ -7,10 +7,12 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    Bar: typeof import('./src/components/echarts-type/component/bar.vue')['default']
     Component: typeof import('./src/components/header/component/index.vue')['default']
-    Components: typeof import('./src/components/form/components/index.vue')['default']
+    Components: typeof import('./src/components/echarts/components/index.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElCard: typeof import('element-plus/es')['ElCard']
     ElCol: typeof import('element-plus/es')['ElCol']
     ElContainer: typeof import('element-plus/es')['ElContainer']
     ElDatePicker: typeof import('element-plus/es')['ElDatePicker']
@@ -35,6 +37,8 @@ declare module '@vue/runtime-core' {
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     ElUpload: typeof import('element-plus/es')['ElUpload']
     Header: typeof import('./src/components/header/index.vue')['default']
+    Map: typeof import('./src/components/echarts-type/component/map.vue')['default']
+    Pie: typeof import('./src/components/echarts-type/component/pie.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

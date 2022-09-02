@@ -1,4 +1,5 @@
 import myHttp from "./axios";
+// 可以new出不同的实例，不同的baseURL不同的headers不同的拦截等，互不影响
 export const axios = new myHttp({
     baseURL: "http://127.0.0.1:5173",
     timeout: 10*1000,
