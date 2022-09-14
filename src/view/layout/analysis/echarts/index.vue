@@ -26,20 +26,6 @@
         </el-card>
       </el-col>
     </el-row>
-    <!-- <el-row :gutter="10" style="margin-bottom: 20px">
-      <el-col :span="24">
-        <el-card class="box-card">
-          <template #header>
-            <div class="card-header">
-              <span>地图</span>
-            </div>
-          </template>
-          <div class="item">
-            <map :options="mapOptions" />
-          </div>
-        </el-card>
-      </el-col>
-    </el-row> -->
   </div>
 </template>
 <script setup lang="ts">

@@ -18,6 +18,7 @@
       // export default/module.exports = {}
       // es module 和 commonjs
       "esModuleInterop": true,
+      "strictNullChecks":true,
       "allowSyntheticDefaultImports": true,
       // 要不要生成映射文件(ts -> js)
       "sourceMap": true,

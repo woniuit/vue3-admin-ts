@@ -1,13 +1,13 @@
 <template>
   <div>
-    <!-- <forms :colLayout="colLayout" :formItems="formItems" v-model="formData">
+    <forms :colLayout="colLayout" :formItems="formItems" v-model="formData">
       <template #footer>
         <div class="handle-btns">
           <el-button @click="onReset">重置</el-button>
           <el-button type="primary" @click="onSearch">搜索</el-button>
         </div>
       </template>
-    </forms> -->
+    </forms>
 
     <forms ref="formRef" :formItems="formItems" v-model="formData">
       <template #footer>
