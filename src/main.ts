@@ -1,8 +1,10 @@
 import { createApp } from 'vue'
 import 'normalize.css/normalize.css'
+import 'element-plus/theme-chalk/dark/css-vars.css'
 import App from './App.vue'
 import router from './router'
 import './css/common.less'
+import './css/dark/css-vars.css'
 import './mock/index'
 import { createPinia } from 'pinia'
 

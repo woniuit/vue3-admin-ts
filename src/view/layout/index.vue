@@ -34,19 +34,19 @@ function handleExpand() {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
 }
 
 .main-content,
 .page {
-  height: 100%;
+  height: 100vh;
 }
 
 .page-content {
   height: calc(100% - 48px);
 
   .page-info {
-    background-color: #fff;
+    background-color: var(--el-bg-color);
     border-radius: 5px;
   }
 }
@@ -54,7 +54,6 @@ function handleExpand() {
 .el-header,
 .el-footer {
   display: flex;
-  color: #333;
   text-align: center;
   align-items: center;
 }
@@ -62,26 +61,26 @@ function handleExpand() {
 .el-header {
   height: 48px !important;
 }
-
+.page-header{
+    border-bottom: 1px solid var(--el-border-color);
+}
 .el-aside {
   overflow-x: hidden;
   overflow-y: auto;
   line-height: 200px;
   text-align: left;
+  border-right: 1px solid var(--el-border-color);
   cursor: pointer;
-  background-color: #001529;
   transition: width 0.3s linear;
   scrollbar-width: none; /* firefox */
   -ms-overflow-style: none; /* IE 10+ */
-
   &::-webkit-scrollbar {
     display: none;
   }
 }
 
 .el-main {
-  color: #333;
+  color: var(--el-text-color-primary);
   text-align: center;
-  background-color: #f0f2f5;
 }
 </style>

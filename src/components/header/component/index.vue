@@ -4,10 +4,23 @@
       <div>
         <el-icon class="icon" @click="handleExpand"><Expand /></el-icon>
       </div>
-      <div>
+
+      <div class="operate">
+        <div class="full-screen" @click="onFull">
+          <el-icon><FullScreen /></el-icon>
+        </div>
+        <div class="theme-toggler">
+          <theme-toggler />
+        </div>
         <el-dropdown>
           <span class="el-dropdown-link">
-            UserName
+            <span
+              style="width: 24px; height: 24px"
+              class="el-avatar el-avatar--circle"
+              ><img
+                src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
+                style="object-fit: cover; width: 24px; height: 24px"
+            /></span>
             <el-icon class="el-icon--right">
               <arrow-down />
             </el-icon>
@@ -23,9 +36,12 @@
   </div>
 </template>
 <script setup lang="ts">
-import { Expand, ArrowDown } from '@element-plus/icons-vue'
+import { Expand, ArrowDown, FullScreen } from '@element-plus/icons-vue'
 import { loginStore } from '../../../store/index'
 import { useRouter } from 'vue-router'
+import themeToggler from '../../theme-toggler/components/index.vue'
+import screenfull from 'screenfull'
+
 const store = loginStore()
 const router = useRouter()
 const emit = defineEmits(['handleExpand'])
@@ -37,6 +53,9 @@ function LoginOut() {
   router.push({
     path: '/login'
   })
+}
+function onFull() {
+  screenfull.toggle()
 }
 </script>
 
@@ -56,6 +75,17 @@ function LoginOut() {
       display: flex;
       align-items: center;
     }
+  }
+  .operate {
+    display: flex;
+    align-items: center;
+  }
+  .theme-toggler {
+    margin: 0 10px;
+  }
+  .full-screen {
+    cursor: pointer;
+    margin-right: 5px;
   }
 }
 </style>

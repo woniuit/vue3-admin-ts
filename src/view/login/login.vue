@@ -9,7 +9,7 @@
         class="demo-ruleForm"
       >
         <el-form-item label="账号" prop="name">
-          <el-input placeholder="admin/123456" v-model="ruleForm.name" type="text" autocomplete="off" />
+          <el-input placeholder="admin/user" v-model="ruleForm.name" type="text" autocomplete="off" />
         </el-form-item>
         <el-form-item label="密码" prop="password">
           <el-input

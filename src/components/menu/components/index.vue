@@ -1,18 +1,12 @@
 <template>
   <div class="menu">
     <div class="logo">
-      <img
-        class="img"
-        src="https://element-plus.gitee.io/images/element-plus-logo.svg"
-        alt="logo"
-      />
+      <img src="../../../assets/vue.svg" alt="">
+      <span v-if="!isCollapse">欢迎光临</span>
     </div>
     <el-menu
       :default-active="activeMenu"
-      background-color="#0c2135"
-      text-color="#b7bdc3"
       :collapse="isCollapse"
-      active-text-color="#0a60bd"
       :unique-opened="true"
       class="el-menu-vertical-demo"
     >
@@ -20,7 +14,7 @@
         <el-sub-menu v-if="v.children" :index="v.url">
           <template #title>
             <el-icon :class="[isCollapse ? 'icons' : '']"><Star /></el-icon>
-            {{ v.name }}
+            <span>{{ v.name }}</span>
           </template>
           <el-menu-item
             v-for="vitem in v.children"
@@ -30,14 +24,14 @@
           >
             <template #title>
               <el-icon><Star /></el-icon>
-              {{ vitem.name }}
+              <span>{{ vitem.name }}</span>
             </template>
           </el-menu-item>
         </el-sub-menu>
         <el-menu-item v-else :index="v.url">
           <template #title>
             <el-icon><Star /></el-icon>
-            {{ v.name }}
+            <span>{{ v.name }}</span>
           </template>
         </el-menu-item>
       </template>
@@ -72,9 +66,6 @@ function handleLink(e: { url: string }) {
 
 <style scoped lang="less">
 .menu {
-  .icons {
-    margin-right: 15px !important;
-  }
   .logo {
     display: flex;
     height: 28px;
@@ -91,25 +82,14 @@ function handleLink(e: { url: string }) {
     .title {
       font-size: 16px;
       font-weight: 700;
-      color: white;
     }
   }
   ::v-deep(.el-menu) {
     border-right: none;
   }
-  ::v-deep(.el-menu-item.is-active) {
-    background-color: #409eff;
-    color: #ffffff;
-  }
-  ::v-deep(.el-menu-item:hover) {
-    color: #ffffff !important;
-  }
   ::v-deep(.el-menu-vertical):not(.el-menu--collapse) {
     width: 100%;
     height: calc(100% - 48px);
-  }
-  .el-menu-vertical-demo:not(.el-menu--collapse) {
-    width: 200px;
   }
 }
 </style>

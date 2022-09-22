@@ -25,11 +25,11 @@ import { FormConfig } from './config/index'
 import type { FormInstance } from 'element-plus'
 import Forms from '../../../../components/form'
 const colLayout = {
-  xl: 24,
-  lg: 24,
-  md: 24,
-  sm: 24,
-  xs: 24
+  xl: 12,
+  lg: 12,
+  md: 12,
+  sm: 12,
+  xs: 12
 }
 const formRef = ref<FormInstance>()
 const formItems = FormConfig.formItems ?? []
